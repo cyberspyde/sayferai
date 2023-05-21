@@ -1,0 +1,1144 @@
+{
+    "intents": [
+        {
+            "tag": "1",
+            "patterns": [
+                "birinchi",
+                "bir"
+            ],
+            "responses": [
+                "bir"
+            ]
+        },
+        {
+            "tag": "2",
+            "patterns": [
+                "ikkinchi",
+                "ikki"
+            ],
+            "responses": [
+                "ikki"
+            ]
+        },
+        {
+            "tag": "3",
+            "patterns": [
+                "uchinchi",
+                "uch"
+            ],
+            "responses": [
+                "uch"
+            ]
+        },
+        {
+            "tag": "4",
+            "patterns": [
+                "to'rtinchi",
+                "to'rt"
+            ],
+            "responses": [
+                "to'rt"
+            ]
+        },
+        {
+            "tag": "5",
+            "patterns": [
+                "beshinchi",
+                "besh"
+            ],
+            "responses": [
+                "besh"
+            ]
+        },
+        {
+            "tag": "6",
+            "patterns": [
+                "oltinchi",
+                "olti"
+            ],
+            "responses": [
+                "olti"
+            ]
+        },
+        {
+            "tag": "7",
+            "patterns": [
+                "yettinchi",
+                "yetti"
+            ],
+            "responses": [
+                "yetti"
+            ]
+        },
+        {
+            "tag": "8",
+            "patterns": [
+                "sakkizinchi",
+                "sakkiz"
+            ],
+            "responses": [
+                "sakkiz"
+            ]
+        },
+        {
+            "tag": "9",
+            "patterns": [
+                "to'qqizinchi",
+                "to'qqiz"
+            ],
+            "responses": [
+                "to'qqiz"
+            ]
+        },
+        {
+            "tag": "10",
+            "patterns": [
+                "o'ninchi",
+                "o'n"
+            ],
+            "responses": [
+                "o'n"
+            ]
+        },
+        {
+            "tag": "11",
+            "patterns": [
+                "o'n birinchi",
+                "o'n bir"
+            ],
+            "responses": [
+                "o'n bir"
+            ]
+        },
+        {
+            "tag": "12",
+            "patterns": [
+                "o'n ikkinchi",
+                "o'n ikki"
+            ],
+            "responses": [
+                "o'n ikki"
+            ]
+        },
+        {
+            "tag": "13",
+            "patterns": [
+                "o'n uchinchi",
+                "o'n uch"
+            ],
+            "responses": [
+                "o'n uch"
+            ]
+        },
+        {
+            "tag": "14",
+            "patterns": [
+                "o'n to'rtinchi",
+                "o'n to'rt"
+            ],
+            "responses": [
+                "o'n to'rt"
+            ]
+        },
+        {
+            "tag": "15",
+            "patterns": [
+                "o'n beshinchi",
+                "o'n besh"
+            ],
+            "responses": [
+                "o'n besh"
+            ]
+        },
+        {
+            "tag": "16",
+            "patterns": [
+                "o'n oltinchi",
+                "o'n olti"
+            ],
+            "responses": [
+                "o'n olti"
+            ]
+        },
+        {
+            "tag": "17",
+            "patterns": [
+                "o'n yettinchi",
+                "o'n yetti"
+            ],
+            "responses": [
+                "o'n yetti"
+            ]
+        },
+        {
+            "tag": "18",
+            "patterns": [
+                "o'n sakkizinchi",
+                "o'n sakkiz"
+            ],
+            "responses": [
+                "o'n sakkiz"
+            ]
+        },
+        {
+            "tag": "19",
+            "patterns": [
+                "o'n to'qqizinchi",
+                "o'n to'qqiz"
+            ],
+            "responses": [
+                "o'n to'qqiz"
+            ]
+        },
+        {
+            "tag": "20",
+            "patterns": [
+                "yigirmainchi",
+                "yigirma"
+            ],
+            "responses": [
+                "yigirma"
+            ]
+        },
+        {
+            "tag": "21",
+            "patterns": [
+                "yigirma birinchi",
+                "yigirma bir"
+            ],
+            "responses": [
+                "yigirma bir"
+            ]
+        },
+        {
+            "tag": "22",
+            "patterns": [
+                "yigirma ikkinchi",
+                "yigirma ikki"
+            ],
+            "responses": [
+                "yigirma ikki"
+            ]
+        },
+        {
+            "tag": "23",
+            "patterns": [
+                "yigirma uchinchi",
+                "yigirma uch"
+            ],
+            "responses": [
+                "yigirma uch"
+            ]
+        },
+        {
+            "tag": "24",
+            "patterns": [
+                "yigirma to'rtinchi",
+                "yigirma to'rt"
+            ],
+            "responses": [
+                "yigirma to'rt"
+            ]
+        },
+        {
+            "tag": "25",
+            "patterns": [
+                "yigirma beshinchi",
+                "yigirma besh"
+            ],
+            "responses": [
+                "yigirma besh"
+            ]
+        },
+        {
+            "tag": "26",
+            "patterns": [
+                "yigirma oltinchi",
+                "yigirma olti"
+            ],
+            "responses": [
+                "yigirma olti"
+            ]
+        },
+        {
+            "tag": "27",
+            "patterns": [
+                "yigirma yettinchi",
+                "yigirma yetti"
+            ],
+            "responses": [
+                "yigirma yetti"
+            ]
+        },
+        {
+            "tag": "28",
+            "patterns": [
+                "yigirma sakkizinchi",
+                "yigirma sakkiz"
+            ],
+            "responses": [
+                "yigirma sakkiz"
+            ]
+        },
+        {
+            "tag": "29",
+            "patterns": [
+                "yigirma to'qqizinchi",
+                "yigirma to'qqiz"
+            ],
+            "responses": [
+                "yigirma to'qqiz"
+            ]
+        },
+        {
+            "tag": "30",
+            "patterns": [
+                "o'ttizinchi",
+                "o'ttiz"
+            ],
+            "responses": [
+                "o'ttiz"
+            ]
+        },
+        {
+            "tag": "31",
+            "patterns": [
+                "o'ttiz birinchi",
+                "o'ttiz bir"
+            ],
+            "responses": [
+                "o'ttiz bir"
+            ]
+        },
+        {
+            "tag": "32",
+            "patterns": [
+                "o'ttiz ikkinchi",
+                "o'ttiz ikki"
+            ],
+            "responses": [
+                "o'ttiz ikki"
+            ]
+        },
+        {
+            "tag": "33",
+            "patterns": [
+                "o'ttiz uchinchi",
+                "o'ttiz uch"
+            ],
+            "responses": [
+                "o'ttiz uch"
+            ]
+        },
+        {
+            "tag": "34",
+            "patterns": [
+                "o'ttiz to'rtinchi",
+                "o'ttiz to'rt"
+            ],
+            "responses": [
+                "o'ttiz to'rt"
+            ]
+        },
+        {
+            "tag": "35",
+            "patterns": [
+                "o'ttiz beshinchi",
+                "o'ttiz besh"
+            ],
+            "responses": [
+                "o'ttiz besh"
+            ]
+        },
+        {
+            "tag": "36",
+            "patterns": [
+                "o'ttiz oltinchi",
+                "o'ttiz olti"
+            ],
+            "responses": [
+                "o'ttiz olti"
+            ]
+        },
+        {
+            "tag": "37",
+            "patterns": [
+                "o'ttiz yettinchi",
+                "o'ttiz yetti"
+            ],
+            "responses": [
+                "o'ttiz yetti"
+            ]
+        },
+        {
+            "tag": "38",
+            "patterns": [
+                "o'ttiz sakkizinchi",
+                "o'ttiz sakkiz"
+            ],
+            "responses": [
+                "o'ttiz sakkiz"
+            ]
+        },
+        {
+            "tag": "39",
+            "patterns": [
+                "o'ttiz to'qqizinchi",
+                "o'ttiz to'qqiz"
+            ],
+            "responses": [
+                "o'ttiz to'qqiz"
+            ]
+        },
+        {
+            "tag": "40",
+            "patterns": [
+                "qirqinchi",
+                "qirq"
+            ],
+            "responses": [
+                "qirq"
+            ]
+        },
+        {
+            "tag": "41",
+            "patterns": [
+                "qirq birinchi",
+                "qirq bir"
+            ],
+            "responses": [
+                "qirq bir"
+            ]
+        },
+        {
+            "tag": "42",
+            "patterns": [
+                "qirq ikkinchi",
+                "qirq ikki"
+            ],
+            "responses": [
+                "qirq ikki"
+            ]
+        },
+        {
+            "tag": "43",
+            "patterns": [
+                "qirq uchinchi",
+                "qirq uch"
+            ],
+            "responses": [
+                "qirq uch"
+            ]
+        },
+        {
+            "tag": "44",
+            "patterns": [
+                "qirq to'rtinchi",
+                "qirq to'rt"
+            ],
+            "responses": [
+                "qirq to'rt"
+            ]
+        },
+        {
+            "tag": "45",
+            "patterns": [
+                "qirq beshinchi",
+                "qirq besh"
+            ],
+            "responses": [
+                "qirq besh"
+            ]
+        },
+        {
+            "tag": "46",
+            "patterns": [
+                "qirq oltinchi",
+                "qirq olti"
+            ],
+            "responses": [
+                "qirq olti"
+            ]
+        },
+        {
+            "tag": "47",
+            "patterns": [
+                "qirq yettinchi",
+                "qirq yetti"
+            ],
+            "responses": [
+                "qirq yetti"
+            ]
+        },
+        {
+            "tag": "48",
+            "patterns": [
+                "qirq sakkizinchi",
+                "qirq sakkiz"
+            ],
+            "responses": [
+                "qirq sakkiz"
+            ]
+        },
+        {
+            "tag": "49",
+            "patterns": [
+                "qirq to'qqizinchi",
+                "qirq to'qqiz"
+            ],
+            "responses": [
+                "qirq to'qqiz"
+            ]
+        },
+        {
+            "tag": "50",
+            "patterns": [
+                "ellikinchi",
+                "ellik"
+            ],
+            "responses": [
+                "ellik"
+            ]
+        },
+        {
+            "tag": "51",
+            "patterns": [
+                "ellik birinchi",
+                "ellik bir"
+            ],
+            "responses": [
+                "ellik bir"
+            ]
+        },
+        {
+            "tag": "52",
+            "patterns": [
+                "ellik ikkinchi",
+                "ellik ikki"
+            ],
+            "responses": [
+                "ellik ikki"
+            ]
+        },
+        {
+            "tag": "53",
+            "patterns": [
+                "ellik uchinchi",
+                "ellik uch"
+            ],
+            "responses": [
+                "ellik uch"
+            ]
+        },
+        {
+            "tag": "54",
+            "patterns": [
+                "ellik to'rtinchi",
+                "ellik to'rt"
+            ],
+            "responses": [
+                "ellik to'rt"
+            ]
+        },
+        {
+            "tag": "55",
+            "patterns": [
+                "ellik beshinchi",
+                "ellik besh"
+            ],
+            "responses": [
+                "ellik besh"
+            ]
+        },
+        {
+            "tag": "56",
+            "patterns": [
+                "ellik oltinchi",
+                "ellik olti"
+            ],
+            "responses": [
+                "ellik olti"
+            ]
+        },
+        {
+            "tag": "57",
+            "patterns": [
+                "ellik yettinchi",
+                "ellik yetti"
+            ],
+            "responses": [
+                "ellik yetti"
+            ]
+        },
+        {
+            "tag": "58",
+            "patterns": [
+                "ellik sakkizinchi",
+                "ellik sakkiz"
+            ],
+            "responses": [
+                "ellik sakkiz"
+            ]
+        },
+        {
+            "tag": "59",
+            "patterns": [
+                "ellik to'qqizinchi",
+                "ellik to'qqiz"
+            ],
+            "responses": [
+                "ellik to'qqiz"
+            ]
+        },
+        {
+            "tag": "60",
+            "patterns": [
+                "oltmishinchi",
+                "oltmish"
+            ],
+            "responses": [
+                "oltmish"
+            ]
+        },
+        {
+            "tag": "61",
+            "patterns": [
+                "oltmish birinchi",
+                "oltmish bir"
+            ],
+            "responses": [
+                "oltmish bir"
+            ]
+        },
+        {
+            "tag": "62",
+            "patterns": [
+                "oltmish ikkinchi",
+                "oltmish ikki"
+            ],
+            "responses": [
+                "oltmish ikki"
+            ]
+        },
+        {
+            "tag": "63",
+            "patterns": [
+                "oltmish uchinchi",
+                "oltmish uch"
+            ],
+            "responses": [
+                "oltmish uch"
+            ]
+        },
+        {
+            "tag": "64",
+            "patterns": [
+                "oltmish to'rtinchi",
+                "oltmish to'rt"
+            ],
+            "responses": [
+                "oltmish to'rt"
+            ]
+        },
+        {
+            "tag": "65",
+            "patterns": [
+                "oltmish beshinchi",
+                "oltmish besh"
+            ],
+            "responses": [
+                "oltmish besh"
+            ]
+        },
+        {
+            "tag": "66",
+            "patterns": [
+                "oltmish oltinchi",
+                "oltmish olti"
+            ],
+            "responses": [
+                "oltmish olti"
+            ]
+        },
+        {
+            "tag": "67",
+            "patterns": [
+                "oltmish yettinchi",
+                "oltmish yetti"
+            ],
+            "responses": [
+                "oltmish yetti"
+            ]
+        },
+        {
+            "tag": "68",
+            "patterns": [
+                "oltmish sakkizinchi",
+                "oltmish sakkiz"
+            ],
+            "responses": [
+                "oltmish sakkiz"
+            ]
+        },
+        {
+            "tag": "69",
+            "patterns": [
+                "oltmish to'qqizinchi",
+                "oltmish to'qqiz"
+            ],
+            "responses": [
+                "oltmish to'qqiz"
+            ]
+        },
+        {
+            "tag": "70",
+            "patterns": [
+                "yetmishinchi",
+                "yetmish"
+            ],
+            "responses": [
+                "yetmish"
+            ]
+        },
+        {
+            "tag": "71",
+            "patterns": [
+                "yetmish birinchi",
+                "yetmish bir"
+            ],
+            "responses": [
+                "yetmish bir"
+            ]
+        },
+        {
+            "tag": "72",
+            "patterns": [
+                "yetmish ikkinchi",
+                "yetmish ikki"
+            ],
+            "responses": [
+                "yetmish ikki"
+            ]
+        },
+        {
+            "tag": "73",
+            "patterns": [
+                "yetmish uchinchi",
+                "yetmish uch"
+            ],
+            "responses": [
+                "yetmish uch"
+            ]
+        },
+        {
+            "tag": "74",
+            "patterns": [
+                "yetmish to'rtinchi",
+                "yetmish to'rt"
+            ],
+            "responses": [
+                "yetmish to'rt"
+            ]
+        },
+        {
+            "tag": "75",
+            "patterns": [
+                "yetmish beshinchi",
+                "yetmish besh"
+            ],
+            "responses": [
+                "yetmish besh"
+            ]
+        },
+        {
+            "tag": "76",
+            "patterns": [
+                "yetmish oltinchi",
+                "yetmish olti"
+            ],
+            "responses": [
+                "yetmish olti"
+            ]
+        },
+        {
+            "tag": "77",
+            "patterns": [
+                "yetmish yettinchi",
+                "yetmish yetti"
+            ],
+            "responses": [
+                "yetmish yetti"
+            ]
+        },
+        {
+            "tag": "78",
+            "patterns": [
+                "yetmish sakkizinchi",
+                "yetmish sakkiz"
+            ],
+            "responses": [
+                "yetmish sakkiz"
+            ]
+        },
+        {
+            "tag": "79",
+            "patterns": [
+                "yetmish to'qqizinchi",
+                "yetmish to'qqiz"
+            ],
+            "responses": [
+                "yetmish to'qqiz"
+            ]
+        },
+        {
+            "tag": "80",
+            "patterns": [
+                "saksoninchi",
+                "sakson"
+            ],
+            "responses": [
+                "sakson"
+            ]
+        },
+        {
+            "tag": "81",
+            "patterns": [
+                "sakson birinchi",
+                "sakson bir"
+            ],
+            "responses": [
+                "sakson bir"
+            ]
+        },
+        {
+            "tag": "82",
+            "patterns": [
+                "sakson ikkinchi",
+                "sakson ikki"
+            ],
+            "responses": [
+                "sakson ikki"
+            ]
+        },
+        {
+            "tag": "83",
+            "patterns": [
+                "sakson uchinchi",
+                "sakson uch"
+            ],
+            "responses": [
+                "sakson uch"
+            ]
+        },
+        {
+            "tag": "84",
+            "patterns": [
+                "sakson to'rtinchi",
+                "sakson to'rt"
+            ],
+            "responses": [
+                "sakson to'rt"
+            ]
+        },
+        {
+            "tag": "85",
+            "patterns": [
+                "sakson beshinchi",
+                "sakson besh"
+            ],
+            "responses": [
+                "sakson besh"
+            ]
+        },
+        {
+            "tag": "86",
+            "patterns": [
+                "sakson oltinchi",
+                "sakson olti"
+            ],
+            "responses": [
+                "sakson olti"
+            ]
+        },
+        {
+            "tag": "87",
+            "patterns": [
+                "sakson yettinchi",
+                "sakson yetti"
+            ],
+            "responses": [
+                "sakson yetti"
+            ]
+        },
+        {
+            "tag": "88",
+            "patterns": [
+                "sakson sakkizinchi",
+                "sakson sakkiz"
+            ],
+            "responses": [
+                "sakson sakkiz"
+            ]
+        },
+        {
+            "tag": "89",
+            "patterns": [
+                "sakson to'qqizinchi",
+                "sakson to'qqiz"
+            ],
+            "responses": [
+                "sakson to'qqiz"
+            ]
+        },
+        {
+            "tag": "90",
+            "patterns": [
+                "to'qsoninchi",
+                "to'qson"
+            ],
+            "responses": [
+                "to'qson"
+            ]
+        },
+        {
+            "tag": "91",
+            "patterns": [
+                "to'qson birinchi",
+                "to'qson bir"
+            ],
+            "responses": [
+                "to'qson bir"
+            ]
+        },
+        {
+            "tag": "92",
+            "patterns": [
+                "to'qson ikkinchi",
+                "to'qson ikki"
+            ],
+            "responses": [
+                "to'qson ikki"
+            ]
+        },
+        {
+            "tag": "93",
+            "patterns": [
+                "to'qson uchinchi",
+                "to'qson uch"
+            ],
+            "responses": [
+                "to'qson uch"
+            ]
+        },
+        {
+            "tag": "94",
+            "patterns": [
+                "to'qson to'rtinchi",
+                "to'qson to'rt"
+            ],
+            "responses": [
+                "to'qson to'rt"
+            ]
+        },
+        {
+            "tag": "95",
+            "patterns": [
+                "to'qson beshinchi",
+                "to'qson besh"
+            ],
+            "responses": [
+                "to'qson besh"
+            ]
+        },
+        {
+            "tag": "96",
+            "patterns": [
+                "to'qson oltinchi",
+                "to'qson olti"
+            ],
+            "responses": [
+                "to'qson olti"
+            ]
+        },
+        {
+            "tag": "97",
+            "patterns": [
+                "to'qson yettinchi",
+                "to'qson yetti"
+            ],
+            "responses": [
+                "to'qson yetti"
+            ]
+        },
+        {
+            "tag": "98",
+            "patterns": [
+                "to'qson sakkizinchi",
+                "to'qson sakkiz"
+            ],
+            "responses": [
+                "to'qson sakkiz"
+            ]
+        },
+        {
+            "tag": "99",
+            "patterns": [
+                "to'qson to'qqizinchi",
+                "to'qson to'qqiz"
+            ],
+            "responses": [
+                "to'qson to'qqiz"
+            ]
+        },
+        {
+            "tag": "100",
+            "patterns": [
+                "yuzinchi",
+                "yuz"
+            ],
+            "responses": [
+                "yuz"
+            ]
+        },
+        {
+            "tag": "101",
+            "patterns": [
+                "bir yuz birinchi",
+                "bir yuz bir"
+            ],
+            "responses": [
+                "bir yuz bir"
+            ]
+        },
+        {
+            "tag": "102",
+            "patterns": [
+                "bir yuz ikkinchi",
+                "bir yuz ikki"
+            ],
+            "responses": [
+                "bir yuz ikki"
+            ]
+        },
+        {
+            "tag": "103",
+            "patterns": [
+                "bir yuz uchinchi",
+                "bir yuz uch"
+            ],
+            "responses": [
+                "bir yuz uch"
+            ]
+        },
+        {
+            "tag": "104",
+            "patterns": [
+                "bir yuz to'rtinchi",
+                "bir yuz to'rt"
+            ],
+            "responses": [
+                "bir yuz to'rt"
+            ]
+        },
+        {
+            "tag": "105",
+            "patterns": [
+                "bir yuz beshinchi",
+                "bir yuz besh"
+            ],
+            "responses": [
+                "bir yuz besh"
+            ]
+        },
+        {
+            "tag": "106",
+            "patterns": [
+                "bir yuz oltinchi",
+                "bir yuz olti"
+            ],
+            "responses": [
+                "bir yuz olti"
+            ]
+        },
+        {
+            "tag": "107",
+            "patterns": [
+                "bir yuz yettinchi",
+                "bir yuz yetti"
+            ],
+            "responses": [
+                "bir yuz yetti"
+            ]
+        },
+        {
+            "tag": "108",
+            "patterns": [
+                "bir yuz sakkizinchi",
+                "bir yuz sakkiz"
+            ],
+            "responses": [
+                "bir yuz sakkiz"
+            ]
+        },
+        {
+            "tag": "109",
+            "patterns": [
+                "bir yuz to'qqizinchi",
+                "bir yuz to'qqiz"
+            ],
+            "responses": [
+                "bir yuz to'qqiz"
+            ]
+        },
+        {
+            "tag": "110",
+            "patterns": [
+                "bir yuz o'ninchi",
+                "bir yuz o'n"
+            ],
+            "responses": [
+                "bir yuz o'n"
+            ]
+        },
+        {
+            "tag": "111",
+            "patterns": [
+                "bir yuz o'n birinchi",
+                "bir yuz o'n bir"
+            ],
+            "responses": [
+                "bir yuz o'n bir"
+            ]
+        },
+        {
+            "tag": "112",
+            "patterns": [
+                "bir yuz o'n ikkinchi",
+                "bir yuz o'n ikki"
+            ],
+            "responses": [
+                "bir yuz o'n ikki"
+            ]
+        },
+        {
+            "tag": "113",
+            "patterns": [
+                "bir yuz o'n uchinchi",
+                "bir yuz o'n uch"
+            ],
+            "responses": [
+                "bir yuz o'n uch"
+            ]
+        },
+        {
+            "tag": "114",
+            "patterns": [
+                "bir yuz o'n to'rtinchi",
+                "bir yuz o'n to'rt"
+            ],
+            "responses": [
+                "bir yuz o'n to'rt"
+            ]
+        }
+    ]
+}

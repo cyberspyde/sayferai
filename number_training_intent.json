@@ -1,0 +1,15 @@
+{
+    "intents": [
+      {
+        "tag": "1",
+        "patterns": ["bir","birinchi"],
+        "responses": ["bir"]
+      },
+      {
+        "tag": "xayrlashish",
+        "patterns": ["ikki", "ikkinchi"],
+        "responses": ["ikki"]
+      }
+    ]
+}
+  
