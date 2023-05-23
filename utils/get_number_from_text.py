@@ -4,7 +4,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from transformers import pipeline
 from nltk.stem.porter import PorterStemmer
-from my_initializer import recognize_once
+from utils.my_initializer import recognize_once
 
 stemmer = PorterStemmer()
 

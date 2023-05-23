@@ -1,6 +1,6 @@
-from my_initializer import synthesize_once, recognize_once, day_filter, year_filter, Logging, robot_name, drop_word, \
+from utils.my_initializer import synthesize_once, recognize_once, day_filter, year_filter, Logging, robot_name, drop_word, \
         get_current_time, wikipedia, get_response, subjective_knowledge, askQuranInUzbek, json
-from get_number_from_text import detect_number
+from utils.get_number_from_text import detect_number
 
 def run_with_no_voice_activation():
     query = recognize_once().lower()
@@ -48,7 +48,7 @@ def run_with_no_voice_activation():
 
     #TakeNotes malumotlarni saqlab qolish
     if "eslab qol" in query and robot_name in query.split():
-        words = ['eslab', 'qol', 'sayfer']
+        words = ['eslab', 'qol', robot_name]
 
         for word in words:
             query = drop_word(query, word)
