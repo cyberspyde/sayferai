@@ -2,11 +2,11 @@ import requests
 import json
 
 # Webhook URL for activating emergency
-activate_emergency_url = "http://127.0.0.1:5000/deactivate_emergency"
+activate_emergency_url = "http://sayfer.uz:5000/notify-update"
 
 # Prepare the request payload
 payload = {
-    "key": "value"
+    "key": "test"
 }
 
 # Set the request headers

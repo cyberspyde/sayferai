@@ -1,4 +1,4 @@
-import telebot, uuid, logging, threading, os
+import telebot, uuid, logging, threading, os, json
 from flask import Flask, request
 
 TOKEN = os.getenv('SAYFERAI_TELEGRAM_BOT_TOKEN')
@@ -59,7 +59,7 @@ def check_password(message):
         bot.send_message(message.chat.id, 'Wrong password.')
         logger.warning(f'User {user_id} entered a wrong password.')
 
-def send_emergency_message(message):
+def send_message(message):
     """Send emergency message to all family members"""
     for user_id in user_sessions:
         bot.send_message(user_id, message)
@@ -72,14 +72,14 @@ def run_bot():
 def run_webhook():
     # Set up the webhook server
     if __name__ == '__main__':
-        app.run()
+        app.run('0.0.0.0')
     
 @app.route('/activate_emergency', methods=['POST'])
 def activate_emergency():
     if request.method == 'POST':
         print(request.json)
         #synthesize_once("Favqulotda holat aktivlashtirildi, uyni egalariga xabar berilmoqda")
-        send_emergency_message("Favqulotda holat aktivlashtirildi")
+        send_message("Favqulotda holat aktivlashtirildi")
         return 'Test Success', 200
     else:
         abort(400)
@@ -89,8 +89,22 @@ def deactivate_emergency():
     if request.method == 'POST':
         print(request.json)
         #synthesize_once("Favqulotda holat o'chirildi")
-        send_emergency_message("Favqulotda holat o'chirildi")
+        send_message("Favqulotda holat o'chirildi")
         return 'Test Success', 200
+    else:
+        abort(400)
+
+@app.route('/notify-update', methods=['POST'])
+def notify_update():
+    if request.method == 'POST':
+        print(request.data)
+        #synthesize_once("Favqulotda holat yangilandi")
+        data = json.loads(request.data)
+        if data['key'] == 'value':
+            send_message("Githubga proyektni yangi versiyasi joylandi")
+            return 'Test Success', 200
+        else:
+            return 'Password is incorrect', 400
     else:
         abort(400)
 
