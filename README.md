@@ -1,5 +1,9 @@
 # SAYFER AI
 
+<img src="assets/Images/banner.jpg" width="500" height="300" />
+
+(https://img.shields.io/badge/LICENSE-mit-grey.svg?style=for-the-badge)](https://github.com/cyberspyde/sayferai/blob/main/LICENSE.txt)
+
 ## Dastur haqida
 
 Assalom alaykum, sayfer dasturi o'zbek tilidagi ovozli sun'iy intellektual yordamchi hisoblanadi. Dastur ochiq kodli (open-source), dasturda foydalanilgan ba'zi kutubxonalar (API yoki library) pullik, ulardan foydalanish uchun xizmatni taklif qilgan ba'zi kompaniyalarga karta ulash ishlatilgan resurslar uchun to'lov qilish talab qilinadi, albatta pullik xizmatlar o'chirib qo'yilib dasturni belgilangan resurslardan o'tkazmagan holatda tekin foydalanish mumkin.
