@@ -1,0 +1,65 @@
+{
+  "intents": [
+    {
+      "tag": "salomlashish",
+      "patterns": [
+        "Salom",
+        "Qalaysan",
+        "Kimdir bormi?",
+        "Assalom alekum",
+        "Xayrli kun"
+      ],
+      "responses": [
+        "Salom",
+        "Salom, Sayfer dasturiga xush kelibsiz!",
+        "Salom, qanday yordam bera olaman?",
+        "Salom, sizga qanday yordam berishim mumkin?",
+        "Assalomu alaykum"
+      ]
+    },
+    {
+      "tag": "xayrlashish",
+      "patterns": ["Xayr", "Ko'rishguncha", "Sog' bo'lgin"],
+      "responses": [
+        "Ko'rishguncha, dasturdan foydalanganingiz uchun rahmat",
+        "Kuningiz xayrli o'tsin!",
+        "Xayr!, yana keling!"
+      ]
+    },
+    {
+      "tag": "yaratuvchi",
+      "patterns": [
+        "Sening yaratuvching kim?",
+        "Seni kim yaratgan?",
+        "Sani yaratuvching kim?",
+        "Sani kim yaratgan?",
+        "Kim yaratgan sani?",
+        "Kim yaratgan seni?",
+        "Sani kim va qachon yaratgan?",
+        "Seni kim qachon yaratgan?",
+        "Kim yaratgan seni?",
+        "Kim sani yaratgan?",
+        "San qachon yaralgansan?",
+        "Sayfer kim tomonidan qachon yaratilgan?"
+      ],
+      "responses": [
+        "Sayfer dasturi yaratuvchisining nomi Sayberspayde, yaratuvchi asl ismini tarqatishni xohlamadi."
+      ]
+    },
+    {
+      "tag": "soat",
+      "patterns": ["Soat necha bo'ldi", "Soatni aytib yubor", "Hozir soat necha bo'ldi", "Soat nechchi", "Soat necha"],
+      "responses": ["soatni aytaman"]
+    },
+    {
+      "tag": "bugungi_logging",
+      "patterns": ["Bugungi kiritilgan barcha ma`lumotlarni aytib ber", "Bugungi kiritilgan barcha ma`lumotlarni ayt", "Bugun qanday ma`lumotlar kiritildi", "Bugungi umumiy ma`lumotlarni ayt", "Bugungi eslab qolgan barcha ma`lumotlaring aytib ber"],
+      "responses": ["bugungi kiritilgan barcha ma`lumotlar o`qib eshittiraman"]
+    },
+    {
+      "tag": "activate_quran",
+      "patterns": ["Qurondan ma`lumot so`ramoqchiman", "Quronni aktivlashtir", "Qur'on haqida ma'lumot bilmoqchiman", "Qur'ondan eshitmoqchiman", "Qur'on eshitishni aktivlashtir", "Qur'onni eshitmoqchiman"],
+      "responses": ["Qur'on ilmi"]
+    }
+  ]
+}

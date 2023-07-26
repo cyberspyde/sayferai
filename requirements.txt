@@ -1,0 +1,10 @@
+omegaconf
+torch
+wikipedia
+numpy
+pyaudio
+sounddevice
+playsound==1.2.2
+transformers
+trello
+flask
