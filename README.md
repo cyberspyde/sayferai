@@ -1,8 +1,6 @@
 # SAYFER AI
 
-<img src="assets/Images/banner.jpg" width="500" height="300" />
-
-(https://img.shields.io/badge/LICENSE-mit-grey.svg?style=for-the-badge)](https://github.com/cyberspyde/sayferai/blob/main/LICENSE.txt)
+<img src="assets/Images/banner.jpg" width="1000" height="500" />
 
 ## Dastur haqida
 
@@ -40,3 +38,5 @@ Bizning proyektni kengaytirish va uning yanada rivojlanishida hissa qo'shishni i
 
 - Email: [cyberspyde@gmail.com](mailto:cyberspyde@gmail.com)
 - Telegram: [t.me/cyberspyde_admin](https://t.me/cyberspyde_admin)
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/LICENSE-mit-grey.svg?style=for-the-badge)](https://github.com/cyberspyde/fraydey/blob/main/LICENSE.txt)
