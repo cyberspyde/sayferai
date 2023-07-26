@@ -1,0 +1,16 @@
+name: Notify Server on Repository Update
+on:
+  push:
+    branches:
+      - main  # Change this to your repository's main branch name if different
+
+jobs:
+  notify_server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Update Notification
+        env:
+          SERVER_URL: "https://sayfer.uz/update"  # Replace with your server's URL and endpoint to receive notifications
+        run: |
+          curl -X POST -H "Content-Type: application/json" -d '{"repository": "${{ github.repository }}", "ref": "${{ github.ref }}", "commit": "${{ github.sha }}"}' $SERVER_URL
