@@ -13,4 +13,4 @@ jobs:
         env:
           SERVER_URL: "http://sayfer.uz:5000/notify-update"  # Replace with your server's URL and endpoint to receive notifications
         run: |
-          curl -X POST -H "Content-Type: application/json" -d '{"repository": "${{ github.repository }}", "ref": "${{ github.ref }, "key": "value"}", "commit": "${{ github.sha }}"}' $SERVER_URL
+          curl -X POST -H "Content-Type: application/json" -d '{"repository": "${{ github.repository }}", "ref": "${{ github.ref }}", "commit": "${{ github.sha }}", "key" : "value"}' $SERVER_URL
