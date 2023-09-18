@@ -39,4 +39,11 @@ Bizning proyektni kengaytirish va uning yanada rivojlanishida hissa qo'shishni i
 - Email: [cyberspyde@gmail.com](mailto:cyberspyde@gmail.com)
 - Telegram: [t.me/cyberspyde_admin](https://t.me/cyberspyde_admin)
 
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/LICENSE-mit-grey.svg?style=for-the-badge)](https://github.com/cyberspyde/fraydey/blob/main/LICENSE.txt)
+## Litsenziyalash
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/LICENSE-mit-grey.svg?style=for-the-badge)](https://github.com/cyberspyde/sayferai/blob/main/LICENSE.txt)
+
+
+## Sponsor Bo'lish
+
+<i>Proyektni molivayiv jihatdan qo'llab quvvatlashni xohlovchilar telegramdan aloqaga chiqishingiz mumkin</i>
