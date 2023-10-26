@@ -10,23 +10,25 @@ from transformers import pipeline
 from transformers import RobertaTokenizer, RobertaForQuestionAnswering
 from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
 import sounddevice as sd
-from text2num import text2num
-from num2text import num2text
+from utils.text2num import text2num
+from utils.num2text import num2text
 
 date = datetime.today().strftime("%y:%m:%d, %H:%M:%S")
+whisper_url = "https://cyberspyde-whisper-uz-api.hf.space/transcribe"
 
 BASE_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, '..')))
 SETTINGS_FILE = os.path.join(BASE_DIR, 'assets/settings.conf')
-SPORTS_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/sports-knowledge.json')
-TECHNOLOGY_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/technology-knowledge.json')
-POLITICS_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/politics-knowledge.json')
-SOCIETY_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/society-knowledge.json')
-CULTURE_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/culture-knowledge.json')
-BUSINESS_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/business-knowledge.json')
-FACTUAL_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/factual-knowledge.json')
-ANALYTICAL_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/analytical-knowledge.json')
-SUBJECTIVE_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/subjective-knowledge.json')
-OBJECTIVE_KNOWLEDGE_FILE = os.path.join(BASE_DIR, 'assets/Knowledge Base/objective-knowledge.json')
+KNOWLEDGE_FILES = os.path.join(BASE_DIR, 'testing/Knowledge Base/')
+SPORTS_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'sports-knowledge.json')
+TECHNOLOGY_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'technology-knowledge.json')
+POLITICS_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'politics-knowledge.json')
+SOCIETY_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'society-knowledge.json')
+CULTURE_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'culture-knowledge.json')
+BUSINESS_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'business-knowledge.json')
+FACTUAL_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'factual-knowledge.json')
+ANALYTICAL_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'analytical-knowledge.json')
+SUBJECTIVE_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'subjective-knowledge.json')
+OBJECTIVE_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'objective-knowledge.json')
 QURAN_FILE = os.path.join(BASE_DIR, 'assets/Religion/Quran-latin.json')
 CACHE_DIR = os.path.join(BASE_DIR, '.cache/huggingface/transformers/')
 
@@ -38,7 +40,7 @@ voice_activation = settings['voice_activation']
 robot_name = settings['robot_name'].lower()
 gpt3 = settings['gpt3']
 robertaqna_settings = settings['robertaqna']
-logging = settings['logging']
+#logging = settings['logging']
 
 # Load knowledge bases from JSON files
 with open(SPORTS_KNOWLEDGE_FILE, 'r') as f:
@@ -72,7 +74,7 @@ with open(OBJECTIVE_KNOWLEDGE_FILE, 'r') as f:
     objective_knowledge = json.load(f)
 
 with open(QURAN_FILE, 'r') as f:
-    quran_data = json.load(f)
+    quranData = json.load(f)
 
 if robertaqna_settings == True:
     roberta_qna_tokenizer = RobertaTokenizer.from_pretrained("deepset/roberta-base-squad2", cache_dir=CACHE_DIR)
@@ -145,10 +147,10 @@ year_fourth = {
     }
 
 USE_ONNX = False # change this to True if you want to test onnx model
-
+silero_vad_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-vad_master'
 #torch.set_num_threads(1)
 #snakers4/silero-vad
-vad_model, vad_utils = torch.hub.load(r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-vad_master',
+vad_model, vad_utils = torch.hub.load(silero_vad_path,
                               model='silero_vad',
                               source='local',
                               force_reload=True,
@@ -157,25 +159,16 @@ vad_model, vad_utils = torch.hub.load(r'c:\\Users\\ilhom\\.cache\\torch\\hub\\sn
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 processor = AutoProcessor.from_pretrained("GitNazarov/whisper-small-pt-3-uz")
 whisper_model = AutoModelForSpeechSeq2Seq.from_pretrained("GitNazarov/whisper-small-pt-3-uz")
-whisper_model.to(device)
+#whisper_model.to(device)
 
 
 #Initialization for STT model
 def recognize_once():
-    (get_speech_timestamps,
-    save_audio,
-    read_audio,
-    VADIterator,
-    collect_chunks) = vad_utils
-
     FORMAT = pyaudio.paInt16
     CHANNELS = 1
     STT_SAMPLE_RATE = 16000
     CHUNK = int(STT_SAMPLE_RATE / 10)
     audio = pyaudio.PyAudio()
-    RECORD_SECONDS = 5
-    num_samples = 1536
-    data = []
     voiced_confidences = []
 
     recognize_vad_stream = audio.open(format=FORMAT,
@@ -191,71 +184,47 @@ def recognize_once():
     for i in range(int(STT_SAMPLE_RATE / CHUNK * record_duration)):
         audio_chunk = recognize_vad_stream.read(CHUNK)
         frames.append(audio_chunk)
-
         audio_int16 = np.frombuffer(audio_chunk, np.int16)
-
         audio_float32 = int2float(audio_int16)
-
-        # get the confidences and add them to the list to plot them later
         new_confidence = vad_model(torch.from_numpy(audio_float32), 16000).item()
         voiced_confidences.append(new_confidence)    
 
         if np.average(voiced_confidences[-5:]) > 0.5:
-            #print("voice is detected")
             talked_once = True
-
 
         if talked_once == True and len(voiced_confidences) > int(STT_SAMPLE_RATE / CHUNK * 3) and np.average(voiced_confidences[-5:]) < 0.5:
             print("silence is detected, passing the audio chunk to the transcriber")
             break
     print("recording stopped.")
+    return frames
 
-    audio_data = np.frombuffer(b"".join(frames), dtype=np.int16)
-    audio_float = int2float(audio_data)
-    final_data = torch.from_numpy(audio_float)
-    sp_timestamps = get_speech_timestamps(final_data, vad_model, sampling_rate=STT_SAMPLE_RATE)
 
-    #print(sp_timestamps)
+silero_model_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-models_master'
+#snakers4/silero-models
+tts_model, exampletext = torch.hub.load(repo_or_dir=silero_model_path,
+                                    model='silero_tts',
+                                    source='local',
+                                    language='uz',
+                                    speaker='v4_uz')
+sample_rate = 24000
+speaker = 'dilnavoz'
+# put_accent=True
+# put_yo=True
 
-    #save_audio('record_testing.wav', collect_chunks(sp_timestamps, final_data), sampling_rate=SAMPLE_RATE)
-    if len(sp_timestamps) == 0 or len(final_data) == 0:
-        print("Empty tensor list")
-    else:
-        final_audio_data = collect_chunks(sp_timestamps, final_data)
+#<prosody rate="x-slow">man sekinroq gapiraman</prosody>, <break time="2000ms"/><prosody rate="fast">tez gapirishim mumkin.</prosody>
+#<prosody pitch="x-low">teskarisi, past tonda gapiraman</prosody><prosody pitch="x-high"> yuqori tonda gapirishim mumkin </prosody>
 
-        inputs = processor(final_audio_data, return_tensors="pt", sampling_rate=16000, max_new_tokens=100)
-        input_features = inputs.input_features
-
-        generated_ids = whisper_model.generate(inputs=input_features)
-
-        transcription = processor.batch_decode(generated_ids, skip_special_tokens=True)
-        transcription = ''.join(transcription)
-        return str(transcription)
-
-#Initialization for TTS model
 def synthesize_once(mytext):
-    tts_model, exampletext = torch.hub.load(repo_or_dir=r'c:\\Users\\ilhom\\.cache\\torch\\hub\snakers4_silero-models_master',
-                                        model='silero_tts',
-                                        source='local',
-                                        language='uz',
-                                        speaker='v3_uz')
-    sample_rate = 24000
-    speaker = 'dilnavoz'
-    # put_accent=True
-    # put_yo=True
     exampletext = """
-              <speak>
-              <p>
-                {var}
-              </p>
-              </speak>
-              """.format(var=mytext)
-    #<prosody rate="x-slow">man sekinroq gapiraman</prosody>, <break time="2000ms"/><prosody rate="fast">tez gapirishim mumkin.</prosody>
-    #<prosody pitch="x-low">teskarisi, past tonda gapiraman</prosody><prosody pitch="x-high"> yuqori tonda gapirishim mumkin </prosody>
+        <speak>
+        <p>
+            {var}
+        </p>
+        </speak>
+        """.format(var=mytext)
     tts_audio = tts_model.apply_tts(ssml_text=exampletext,
-                            speaker=speaker,
-                            sample_rate=sample_rate)
-
+                        speaker=speaker,
+                        sample_rate=sample_rate)
     p = pyaudio.PyAudio()
 
     stream = p.open(format=pyaudio.paFloat32,
@@ -355,20 +324,23 @@ def askQuranInUzbek(input):
     #sura = suraExtractor(input)
     aya = 0
     sura = input
-    if sura > 114 or sura < 1:
-        print("Bunday sura mavjud emas")
-    else:
-        playsound(f"assets\\Audio\\Quran\\{sura}.mp3")
+    try:
+        if sura > 114 or sura < 1:
+            print("Bunday sura mavjud emas")
+        else:
+            playsound(f"assets\\Audio\\Quran\\{sura}.mp3")
 
-    print(f"Sura - {sura}, Aya - {aya}")
+        print(f"Sura - {sura}, Aya - {aya}")
 
-    for a in range(len(quranData)):
-        if quranData[a]['sura'] == sura and quranData[a]['aya'] == aya:
+        for a in range(len(quranData)):
+            if quranData[a]['sura'] == sura and quranData[a]['aya'] == aya:
+                    result = ''.join([i for i in quranData[a]['translation'] if not i.isdigit()])
+                    synthesize_once(result)
+            elif aya == 0 and quranData[a]['sura'] == sura:
                 result = ''.join([i for i in quranData[a]['translation'] if not i.isdigit()])
                 synthesize_once(result)
-        elif aya == 0 and quranData[a]['sura'] == sura:
-            result = ''.join([i for i in quranData[a]['translation'] if not i.isdigit()])
-            synthesize_once(result)
+    except Exception as e:
+        print(e)
 
 def validate(model,
              inputs: torch.Tensor):

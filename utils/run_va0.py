@@ -1,28 +1,31 @@
 from utils.my_initializer import synthesize_once, recognize_once, day_filter, year_filter, Logging, robot_name, drop_word, \
-        get_current_time, wikipedia, get_response, subjective_knowledge, askQuranInUzbek, json
+        get_current_time, wikipedia, get_response, subjective_knowledge, askQuranInUzbek, json, text2num
 
 def run_with_no_voice_activation():
-    #query = recognize_once().lower()
-    query = input("savol")
-    answer = day_filter(year_filter(get_response(query)))
-    print(query)
-    status = True
-    #Wikipedia 
-    if "haqida" in query and robot_name in query:
-        try:
-            wiki_question = drop_word(query, robot_name).split(' haqida', 1)[0]
-            suggested_wiki_answer = wikipedia.suggest(f"{wiki_question}")             
+    try:
+        #query = recognize_once().lower()
+        query = recognize_once().lower()
+        answer = day_filter(year_filter(get_response(query)))
+        print(query)
+        status = True
+        #Wikipedia 
+        if "haqida" in query and robot_name in query:
             try:
-                synthesize_once(f"{wiki_question} haqida qidiryabman")
-                wiki_answer = wikipedia.summary(wiki_question, sentences=3)
-            except wikipedia.DisambiguationError as e:
-                s = e.options[-1]
-                wiki_answer = wikipedia.summary(s, sentences=3)
+                wiki_question = drop_word(query, robot_name).split(' haqida', 1)[0]
+                suggested_wiki_answer = wikipedia.suggest(f"{wiki_question}")             
+                try:
+                    synthesize_once(f"{wiki_question} haqida qidiryabman")
+                    wiki_answer = wikipedia.summary(wiki_question, sentences=3)
+                except wikipedia.DisambiguationError as e:
+                    s = e.options[-1]
+                    wiki_answer = wikipedia.summary(s, sentences=3)
 
-            synthesize_once(day_filter(year_filter(wiki_answer)))
-            status = False
-        except Exception as e:
-            print(e)
+                synthesize_once(day_filter(year_filter(wiki_answer)))
+                status = False
+            except Exception as e:
+                print(e)
+    except Exception as e:
+        print(e)
 
     #Soatni so'rash
     if answer == "soatni aytaman":
@@ -36,7 +39,7 @@ def run_with_no_voice_activation():
             request = recognize_once().lower()
             print("query : ", request)
             modified_request = request.replace("’", "'")
-            request = detect_number(modified_request)
+            request = text2num(modified_request)
             print("prediction", request)
             if request == "tugatish" or request == "yakunlash":
                 break

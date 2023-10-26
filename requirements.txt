@@ -1,5 +1,4 @@
 omegaconf
-torch
 wikipedia
 numpy
 pyaudio
@@ -8,3 +7,4 @@ playsound==1.2.2
 transformers
 trello
 flask
+nltk
