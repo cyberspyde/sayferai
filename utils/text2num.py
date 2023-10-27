@@ -101,6 +101,3 @@ def text2num(query):
         print(argErr)
     except KeyError as keyErr:
         print("Bunday raqam mavjud emas ", keyErr)
-
-
-#print(text2num("bir yuzi o'n"))

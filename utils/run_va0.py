@@ -37,12 +37,12 @@ def run_with_no_voice_activation():
         synthesize_once("Qur'ondan xohlagan sura va oyatlaringizni so'rashingiz mumkin, bu rejimdan chiqish uchun yakunlash yoki tugatish so'zlaridan foydalaning. ")
         while True:
             request = recognize_once().lower()
+            if request == "tugatish" or request == "yakunlash":
+                break
             print("query : ", request)
             modified_request = request.replace("’", "'")
             request = text2num(modified_request)
             print("prediction", request)
-            if request == "tugatish" or request == "yakunlash":
-                break
             askQuranInUzbek(request)
 
     #TakeNotes malumotlarni saqlab qolish

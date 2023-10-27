@@ -1,20 +1,24 @@
 import numpy as np
 from nltk.stem.porter import PorterStemmer
-import pyaudio, torch, string, random, json, subprocess, wikipedia, os, requests, threading, uuid, nltk, re, threading
-from subprocess import call, Popen
+import pyaudio, torch, random, json, wikipedia, os, requests, uuid, nltk, re, threading
+from subprocess import call
 from playsound import playsound
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from datetime import datetime
-from transformers import pipeline
 from transformers import RobertaTokenizer, RobertaForQuestionAnswering
-from transformers import AutoProcessor, AutoModelForSpeechSeq2Seq
-import sounddevice as sd
 from utils.text2num import text2num
 from utils.num2text import num2text
+from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
 date = datetime.today().strftime("%y:%m:%d, %H:%M:%S")
 whisper_url = "https://cyberspyde-whisper-uz-api.hf.space/transcribe"
+silero_vad_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-vad_master'
+silero_model_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-models_master'
+USE_ONNX = False
+processor = Wav2Vec2Processor.from_pretrained("oyqiz/uzbek_stt")
+stt_model = Wav2Vec2ForCTC.from_pretrained("oyqiz/uzbek_stt")
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 BASE_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, '..')))
 SETTINGS_FILE = os.path.join(BASE_DIR, 'assets/settings.conf')
@@ -146,8 +150,6 @@ year_fourth = {
         0 : "inchi"
     }
 
-USE_ONNX = False # change this to True if you want to test onnx model
-silero_vad_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-vad_master'
 #torch.set_num_threads(1)
 #snakers4/silero-vad
 vad_model, vad_utils = torch.hub.load(silero_vad_path,
@@ -156,12 +158,7 @@ vad_model, vad_utils = torch.hub.load(silero_vad_path,
                               force_reload=True,
                               onnx=USE_ONNX)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-processor = AutoProcessor.from_pretrained("GitNazarov/whisper-small-pt-3-uz")
-whisper_model = AutoModelForSpeechSeq2Seq.from_pretrained("GitNazarov/whisper-small-pt-3-uz")
-#whisper_model.to(device)
-
-
+SAMPLE_RATE = 16000
 #Initialization for STT model
 def recognize_once():
     FORMAT = pyaudio.paInt16
@@ -196,10 +193,24 @@ def recognize_once():
             print("silence is detected, passing the audio chunk to the transcriber")
             break
     print("recording stopped.")
-    return frames
+    data = b"".join(frames)
+    audio_np = np.frombuffer(data, dtype=np.int16)
+    audio_np = audio_np / np.iinfo(np.int16).max
+    inputs = processor(audio_np, sampling_rate=SAMPLE_RATE, return_tensors="pt")
 
+    with torch.no_grad():
+        logits = model(inputs.input_values, attention_mask=inputs.attention_mask).logits
 
-silero_model_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-models_master'
+    predicted_ids = torch.argmax(logits, dim=-1)
+    transcription = processor.decode(predicted_ids[0])
+    return transcription
+    response = requests.post(whisper_url, data=data)
+    if response.status_code == 200:
+        return response.text
+    else:
+        return response.status_code
+    
+
 #snakers4/silero-models
 tts_model, exampletext = torch.hub.load(repo_or_dir=silero_model_path,
                                     model='silero_tts',
@@ -258,24 +269,6 @@ def Logging(input):
             json.dump(data, log_file, indent=4)
     else:
         print('input invalid, logging skipped')
-    # logs.append(log)
-    # dates.append(date)
-
-
-    # new_log_data = {"log" : logs, "date" : dates}
-    # log_file.write(json.dumps(new_log_data))
-    # log_file.close()
-
-    # rightnow = datetime.today().strftime("%y:%m:%d, %H:%M:%S")
-    # minute = 40
-    # index_numbers = []
-    # for i in dates:
-    #     myobj = datetime.strptime(i, "%y:%m:%d, %H:%M:%S")
-    #     minute = myobj.strftime("%M")
-    #     if minute == "46":
-    #         print(myobj)
-    #         index_numbers.append(dates.index(i))
-    # print(index_numbers)
 
 def todays_Logs(input):
     if (get_response(input) == "bugungi kiritilgan barcha ma`lumotlar o`qib eshittiraman"):
@@ -553,7 +546,7 @@ def bag_of_words(tokenized_sentence, all_words):
 			bag[idx] = 1.0
 	return bag
 
-nltk.download('punkt')
+#nltk.download('punkt')
 
 class NeuralNet(nn.Module):
 	def __init__(self, input_size, hidden_size, num_classes):
@@ -680,8 +673,6 @@ def train_model():
 
 	print(f'training complete. file saved to {FILE}')
 	
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
 INTENTS_FILE = os.path.join(BASE_DIR, 'assets/intents.json')
 SIMPLE_QA_MODEL = os.path.join(BASE_DIR, 'model/data.pth')
 

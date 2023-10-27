@@ -10,6 +10,7 @@ localhost_url = "http://localhost:7860/transcribe"
 
 # Get the data to send in the POST request
 mydata = recognize_once()
+
 data = b"".join(mydata)
 
 # Send the POST request
