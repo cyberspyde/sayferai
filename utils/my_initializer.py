@@ -11,15 +11,6 @@ from utils.text2num import text2num
 from utils.num2text import num2text
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
-date = datetime.today().strftime("%y:%m:%d, %H:%M:%S")
-whisper_url = "https://cyberspyde-whisper-uz-api.hf.space/transcribe"
-silero_vad_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-vad_master'
-silero_model_path = r'c:\\Users\\ilhom\\.cache\\torch\\hub\\snakers4_silero-models_master'
-USE_ONNX = False
-processor = Wav2Vec2Processor.from_pretrained("oyqiz/uzbek_stt")
-stt_model = Wav2Vec2ForCTC.from_pretrained("oyqiz/uzbek_stt")
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
 BASE_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, '..')))
 SETTINGS_FILE = os.path.join(BASE_DIR, 'assets/settings.conf')
 KNOWLEDGE_FILES = os.path.join(BASE_DIR, 'testing/Knowledge Base/')
@@ -35,8 +26,7 @@ SUBJECTIVE_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'subjective-knowledge.
 OBJECTIVE_KNOWLEDGE_FILE = os.path.join(KNOWLEDGE_FILES, 'objective-knowledge.json')
 QURAN_FILE = os.path.join(BASE_DIR, 'assets/Religion/Quran-latin.json')
 CACHE_DIR = os.path.join(BASE_DIR, '.cache/huggingface/transformers/')
-
-# Load settings from a configuration file
+date = datetime.today().strftime("%y:%m:%d, %H:%M:%S")
 with open(SETTINGS_FILE, 'r') as f:
     settings = json.load(f)
 
@@ -44,6 +34,14 @@ voice_activation = settings['voice_activation']
 robot_name = settings['robot_name'].lower()
 gpt3 = settings['gpt3']
 robertaqna_settings = settings['robertaqna']
+whisper_url = settings['whisper_url']
+silero_vad_path = settings[r'silero_vad_path']
+silero_model_path = settings[r'silero_model_path']
+USE_ONNX = settings['USE_ONNX']
+
+processor = Wav2Vec2Processor.from_pretrained("oyqiz/uzbek_stt")
+stt_model = Wav2Vec2ForCTC.from_pretrained("oyqiz/uzbek_stt")
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #logging = settings['logging']
 
 # Load knowledge bases from JSON files
