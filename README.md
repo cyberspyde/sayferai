@@ -23,6 +23,9 @@ Proyektda bir nechta afzalliklar mavjud:
 
 ## Hissa qo'shish (Contributions)
 
+Contributor List :
+- Farruhky
+
 Bizga yordam berishingiz va proyektda o'zingizning hissangizni qo'shishingiz mumkin. Siz o'zingizga kerakli bo'lgan vazifalarni tanlashingiz, uning ustida ishlashingiz va o'zgartirishlarni GitHub repository'ga qo'shishingiz mumkin.
 
 ### Qo'shimcha resurslar
